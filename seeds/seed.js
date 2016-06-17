@@ -1,25 +1,20 @@
 exports.seed = function(knex, Promise) {
-    return knex.raw('TRUNCATE comment RESTART IDENTITY CASCADE')
+    return knex.raw('TRUNCATE comment, post, person RESTART IDENTITY CASCADE')
         .then(function() {
-            return knex.raw('TRUNCATE post RESTART IDENTITY CASCADE')
-        })
-        .then(function() {
-            return knex("user").del()
-        })
-        .then(function() {
-            return Promise.join(
-                knex('user').insert({
+            return Promise.all([
+                knex('person').insert({
                     name: 'Evan McClaugherty'
                 }).returning('id'),
-                knex('user').insert({
+                knex('person').insert({
                     name: 'Zach Zimmerman'
                 }).returning('id'),
-                knex('user').insert({
+                knex('person').insert({
                     name: 'Steven Lawson'
                 }).returning('id')
-            );
+            ]);
         })
         .then(function(ids) {
+            console.log(ids);
             var evan = ids[0][0],
                 zach = ids[1][0],
                 steven = ids[2][0];

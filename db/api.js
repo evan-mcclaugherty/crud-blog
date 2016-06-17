@@ -12,17 +12,22 @@ module.exports = {
             return knex.table('post').where({
                 id: id
             }).del();
+        },
+        update: function(id) {
+            return knex.table('post').where({
+                id: id
+            })
         }
     },
     User: {
         get: function() {
-            return knex.table('user').select();
+            return knex.table('person').select();
         },
         insert: function(data) {
-            return knex.table('user').insert(data);
+            return knex.table('person').insert(data);
         },
         delete: function(id) {
-            return knex.table('user').where({
+            return knex.table('person').where({
                 id: id
             }).del();
         }

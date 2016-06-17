@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         table.string('name')
         table.text('blog');
         table.string('image')
-        table.integer('user_id').references('user.id');
+        table.integer('user_id').references('person.id');
     });
 };
 

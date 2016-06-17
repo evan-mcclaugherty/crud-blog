@@ -1,1 +1,27 @@
-{{data}}
+<h1>{{post.name}}</h1>
+<img src="{{post.image}}" />
+<h3>{{post.blog}} - {{post.person}}</h3>
+{{#each comment}}
+    <li>{{this.name}} comments: {{this.comment}}</li>
+{{/each}}
+<br>
+<br>
+
+<form action="/comment" method="post">
+    <input type="hidden" name="id" value="{{post.id}}">
+    <select name="user_id" required>
+        {{#each person}}
+            <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <a href="/addUser">Add Yourself</a>
+    <br>
+    <br>
+    <textarea name="comment" rows="8" cols="40" placeholder="Add your comment here" required></textarea>
+    <br>
+    <br>
+    <button type="submit" name="button">Submit Comment</button>
+</form>
+<br><br>
+<a href="/{{post.id}}/edit">Edit This Post</a><br><br>
+<a href="/">Go Back Home</a>

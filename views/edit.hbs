@@ -1,0 +1,10 @@
+<a href="/">Return Home</a>
+<form action="/{{post.id}}/edit" method="post">
+    <input name="name" placeholder="Name Of Your Blog" required value="{{post.name}}">
+    <br>
+    <textarea name="blog" rows="8" cols="40" placeholder="Your blog goes here" required value= {{post.blog}}></textarea>
+    <br>
+    <input type="text" name="image" placeholder="Image URL here" required value="{{post.image}}">
+    <br>
+    <button type="submit">Submit Post</button>
+</form>
