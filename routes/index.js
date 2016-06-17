@@ -33,7 +33,7 @@ router.post('/addUser', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    let id = req.params.id;
+    var id = req.params.id;
     Promise.all([
             db.Post.get().where({
                 id: id
