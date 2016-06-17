@@ -84,7 +84,6 @@ router.get('/:id/edit', function(req, res, next) {
 });
 
 router.post('/:id/edit', function(req, res, next) {
-    console.log(req.body);
     db.Post.update(req.params.id).update(req.body).then(() => {
         res.redirect('/' + req.params.id);
     })
