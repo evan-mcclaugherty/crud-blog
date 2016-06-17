@@ -1,14 +1,15 @@
-<a href='/addUser'>First go here and add yourself as a user</a><br><br>
-<a href='/create'>Then: Create Your Own Sticker!</a>
+<a href='/addUser'><h1>First go here and add yourself as a user</h1></a>
+<a href='/create'><h2>Then Create Your Own Sticker!</h2></a>
 
-<ul>
+<main>
     {{#each post}}
-        <li>
+        <section>
             <h1>{{this.name}}</h1>
             <img src="{{this.image}}" />
             <h3>{{this.blog}}</h3>
-            <a href="/{{this.id}}">See More...</a> <br>
+            <a href="/{{this.id}}">See More...</a>
+            <br>
             <a href="/{{this.id}}/delete">Delete This Post</a>
-        </li>
+        </section>
     {{/each}}
-</ul>
+</main>
